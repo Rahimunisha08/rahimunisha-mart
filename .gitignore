@@ -1,0 +1,28 @@
+# Target and compilation
+target/
+*.class
+*.war
+*.ear
+
+# Environment and sensitive credentials
+.env
+src/main/resources/config.properties
+config.properties
+
+# Database files
+*.mv.db
+*.trace.db
+data/
+
+# IDE files
+.idea/
+*.iml
+.vscode/
+.settings/
+.project
+.classpath
+
+# Logs & temp
+*.log
+temp/
+work/

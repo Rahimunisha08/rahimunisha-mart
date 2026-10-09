@@ -26,3 +26,4 @@ data/
 *.log
 temp/
 work/
+apache-maven-*/

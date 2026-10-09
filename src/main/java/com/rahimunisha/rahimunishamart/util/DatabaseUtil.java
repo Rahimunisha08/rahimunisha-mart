@@ -120,27 +120,30 @@ public class DatabaseUtil {
 
     public static void runSchemaAndMigrations() {
         try (Connection conn = getConnection()) {
-            // Check if users table exists
-            boolean usersExists = false;
-            try (PreparedStatement check = conn.prepareStatement(
-                    "SELECT COUNT(*) FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'USERS'")) {
+            logger.info("Initializing schema.sql (tables with IF NOT EXISTS)...");
+            executeSqlScript(conn, "schema.sql");
+
+            logger.info("Executing migrations: v2__order_status.sql...");
+            executeSqlScript(conn, "migrations/v2__order_status.sql");
+
+            // Check if users table is empty
+            boolean needsSeed = false;
+            try (PreparedStatement check = conn.prepareStatement("SELECT COUNT(*) FROM users")) {
                 try (ResultSet rs = check.executeQuery()) {
-                    if (rs.next() && rs.getInt(1) > 0) {
-                        usersExists = true;
+                    if (rs.next() && rs.getInt(1) == 0) {
+                        needsSeed = true;
                     }
                 }
+            } catch (SQLException e) {
+                needsSeed = true;
             }
 
-            if (!usersExists) {
-                logger.info("Users table not found. Initializing schema.sql...");
-                executeSqlScript(conn, "schema.sql");
-                logger.info("Executing migrations: v2__order_status.sql...");
-                executeSqlScript(conn, "migrations/v2__order_status.sql");
+            if (needsSeed) {
                 logger.info("Populating database with seed.sql demo data...");
                 executeSqlScript(conn, "seed.sql");
                 logger.info("Database initialized and seeded successfully.");
             } else {
-                logger.info("Existing database schema detected. Skipping initial seed.");
+                logger.info("Existing database data detected. Skipping seed.");
             }
         } catch (Exception e) {
             logger.error("Error executing database schema / seed scripts", e);
@@ -153,23 +156,7 @@ public class DatabaseUtil {
                 logger.warn("SQL script not found in classpath: {}", scriptPath);
                 return;
             }
-            try (BufferedReader reader = new BufferedReader(new InputStreamReader(in))) {
-                String fullSql = reader.lines().collect(Collectors.joining("\n"));
-                // Split statements by semicolon
-                String[] statements = fullSql.split(";");
-                for (String rawStmt : statements) {
-                    String sql = rawStmt.trim();
-                    // Ignore empty or pure comment lines
-                    if (!sql.isEmpty() && !sql.startsWith("--")) {
-                        try (Statement stmt = conn.createStatement()) {
-                            stmt.execute(sql);
-                        } catch (SQLException e) {
-                            // If table or index already exists, continue gracefully
-                            logger.debug("Statement notice on [{}]: {}", scriptPath, e.getMessage());
-                        }
-                    }
-                }
-            }
+            org.h2.tools.RunScript.execute(conn, new InputStreamReader(in, java.nio.charset.StandardCharsets.UTF_8));
         }
     }
 }

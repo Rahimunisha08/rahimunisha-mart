@@ -34,6 +34,7 @@ public class EmbeddedServer {
         }
 
         StandardContext ctx = (StandardContext) tomcat.addWebapp("", new File(webappDirLocation).getAbsolutePath());
+        ctx.setParentClassLoader(EmbeddedServer.class.getClassLoader());
         ctx.setReloadable(true);
 
         // Declare alternative location for your "WEB-INF/classes" dir

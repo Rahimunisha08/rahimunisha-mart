@@ -174,6 +174,16 @@
                 <version>3.2.5</version>
             </plugin>
 
+            <!-- Exec Maven Plugin for running EmbeddedServer -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.6.4</version>
+                <configuration>
+                    <mainClass>com.rahimunisha.rahimunishamart.server.EmbeddedServer</mainClass>
+                </configuration>
+            </plugin>
+
             <!-- Checkstyle Plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

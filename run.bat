@@ -1,27 +1,27 @@
 @echo off
+setlocal
 echo ===================================================================
 echo     RAHIMUNISHA MART - ANNA UNIVERSITY CAPSTONE RUNNER
 echo ===================================================================
 echo.
 
+set "MVN_CMD="
+
 where mvn >nul 2>nul
 if %ERRORLEVEL% equ 0 (
-    echo [INFO] Found Maven in PATH. Compiling and launching embedded Tomcat...
-    mvn compile exec:java -Dexec.mainClass="com.rahimunisha.rahimunishamart.server.EmbeddedServer"
+    set "MVN_CMD=mvn"
+) else if exist "%~dp0apache-maven-3.9.9\bin\mvn.cmd" (
+    set "MVN_CMD=%~dp0apache-maven-3.9.9\bin\mvn.cmd"
+)
+
+if defined MVN_CMD (
+    echo [INFO] Using Maven: %MVN_CMD%
+    echo [INFO] Starting RahimunishaMart Server on port 8080...
+    call "%MVN_CMD%" exec:java
     goto end
 )
 
-where javac >nul 2>nul
-if %ERRORLEVEL% equ 0 (
-    echo [INFO] Maven not in PATH, but JDK detected.
-    echo [INFO] Please install Maven or add Maven to PATH:
-    echo        1. Download Apache Maven from https://maven.apache.org/download.cgi
-    echo        2. Extract to C:\Program Files\apache-maven and add bin\ to PATH
-    echo        3. Then run: mvn clean verify
-    echo.
-) else (
-    echo [ERROR] JDK and Maven not detected. Please install JDK 17+ and Apache Maven.
-)
-
+echo [ERROR] Maven not found. Please ensure Java JDK 17+ and Maven are installed.
 pause
 :end
+endlocal

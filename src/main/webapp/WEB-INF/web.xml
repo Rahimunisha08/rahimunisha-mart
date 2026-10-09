@@ -7,7 +7,152 @@
 
     <display-name>RahimunishaMart</display-name>
 
+    <!-- Context Lifecycle Listener -->
+    <listener>
+        <listener-class>com.rahimunisha.rahimunishamart.listener.AppContextListener</listener-class>
+    </listener>
+
+    <!-- Filters -->
+    <filter>
+        <filter-name>EncodingFilter</filter-name>
+        <filter-class>com.rahimunisha.rahimunishamart.filter.EncodingFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>EncodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>AuthFilter</filter-name>
+        <filter-class>com.rahimunisha.rahimunishamart.filter.AuthFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>AuthFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <!-- Servlets -->
+    <servlet>
+        <servlet-name>HomeServlet</servlet-name>
+        <servlet-class>com.rahimunisha.rahimunishamart.controller.HomeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>HomeServlet</servlet-name>
+        <url-pattern>/home</url-pattern>
+        <url-pattern>/browse</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AuthServlet</servlet-name>
+        <servlet-class>com.rahimunisha.rahimunishamart.controller.AuthServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AuthServlet</servlet-name>
+        <url-pattern>/auth/login</url-pattern>
+        <url-pattern>/auth/register</url-pattern>
+        <url-pattern>/auth/logout</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ProductServlet</servlet-name>
+        <servlet-class>com.rahimunisha.rahimunishamart.controller.ProductServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ProductServlet</servlet-name>
+        <url-pattern>/products/*</url-pattern>
+        <url-pattern>/api/v1/products/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>CartServlet</servlet-name>
+        <servlet-class>com.rahimunisha.rahimunishamart.controller.CartServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CartServlet</servlet-name>
+        <url-pattern>/cart</url-pattern>
+        <url-pattern>/cart/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>CheckoutServlet</servlet-name>
+        <servlet-class>com.rahimunisha.rahimunishamart.controller.CheckoutServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CheckoutServlet</servlet-name>
+        <url-pattern>/checkout</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>OrderServlet</servlet-name>
+        <servlet-class>com.rahimunisha.rahimunishamart.controller.OrderServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>OrderServlet</servlet-name>
+        <url-pattern>/orders</url-pattern>
+        <url-pattern>/orders/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>SellerDashboardServlet</servlet-name>
+        <servlet-class>com.rahimunisha.rahimunishamart.controller.SellerDashboardServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SellerDashboardServlet</servlet-name>
+        <url-pattern>/seller</url-pattern>
+        <url-pattern>/seller/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AdminServlet</servlet-name>
+        <servlet-class>com.rahimunisha.rahimunishamart.controller.AdminServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AdminServlet</servlet-name>
+        <url-pattern>/admin</url-pattern>
+        <url-pattern>/admin/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ReviewServlet</servlet-name>
+        <servlet-class>com.rahimunisha.rahimunishamart.controller.ReviewServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ReviewServlet</servlet-name>
+        <url-pattern>/reviews/add</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>WishlistServlet</servlet-name>
+        <servlet-class>com.rahimunisha.rahimunishamart.controller.WishlistServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>WishlistServlet</servlet-name>
+        <url-pattern>/wishlist</url-pattern>
+        <url-pattern>/wishlist/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>HealthServlet</servlet-name>
+        <servlet-class>com.rahimunisha.rahimunishamart.controller.HealthServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>HealthServlet</servlet-name>
+        <url-pattern>/api/v1/health</url-pattern>
+        <url-pattern>/health</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ChatServlet</servlet-name>
+        <servlet-class>com.rahimunisha.rahimunishamart.controller.ChatServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ChatServlet</servlet-name>
+        <url-pattern>/api/chat</url-pattern>
+        <url-pattern>/api/v1/chat</url-pattern>
+    </servlet-mapping>
+
     <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
         <welcome-file>home</welcome-file>
     </welcome-file-list>
 
@@ -16,7 +161,7 @@
         <session-timeout>30</session-timeout>
         <cookie-config>
             <http-only>true</http-only>
-            <secure>false</secure> <!-- set to true in production HTTPS -->
+            <secure>false</secure>
         </cookie-config>
         <tracking-mode>COOKIE</tracking-mode>
     </session-config>

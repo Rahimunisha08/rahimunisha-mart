@@ -26,7 +26,15 @@ public class CartServlet extends HttpServlet {
         User user = (session != null) ? (User) session.getAttribute("currentUser") : null;
 
         if (user == null) {
-            resp.sendRedirect(req.getContextPath() + "/auth/login?redirect=" + req.getRequestURI());
+            if ("/count".equals(pathInfo)) {
+                resp.setContentType("application/json");
+                resp.getWriter().write("{\"count\":0}");
+                return;
+            }
+            req.setAttribute("cartItems", java.util.Collections.emptyList());
+            req.setAttribute("cartTotal", BigDecimal.ZERO);
+            req.setAttribute("isGuest", true);
+            req.getRequestDispatcher("/WEB-INF/views/buyer/cart.jsp").forward(req, resp);
             return;
         }
 
@@ -52,7 +60,9 @@ public class CartServlet extends HttpServlet {
         User user = (session != null) ? (User) session.getAttribute("currentUser") : null;
 
         if (user == null) {
-            resp.sendRedirect(req.getContextPath() + "/auth/login");
+            session = req.getSession(true);
+            session.setAttribute("authMessage", "Please sign in to add items to your cart.");
+            resp.sendRedirect(req.getContextPath() + "/auth/login?redirect=" + req.getContextPath() + "/cart");
             return;
         }
 

@@ -61,6 +61,8 @@
                     </li>
                 </c:when>
                 <c:otherwise>
+                    <li><a href="${pageContext.request.contextPath}/wishlist" class="nav-link">❤️ Wishlist</a></li>
+                    <li><a href="${pageContext.request.contextPath}/cart" class="nav-link">🛒 Cart</a></li>
                     <li><a href="${pageContext.request.contextPath}/auth/login" class="nav-link">Sign In</a></li>
                     <li><a href="${pageContext.request.contextPath}/auth/register" class="btn btn-primary btn-sm">Register</a></li>
                 </c:otherwise>

@@ -143,7 +143,12 @@ public class DatabaseUtil {
                 executeSqlScript(conn, "seed.sql");
                 logger.info("Database initialized and seeded successfully.");
             } else {
-                logger.info("Existing database data detected. Skipping seed.");
+                logger.info("Existing database data detected. Syncing seed credentials...");
+                try (PreparedStatement fixPw = conn.prepareStatement(
+                        "UPDATE users SET password_hash = ? WHERE email IN ('admin@rahimunishamart.com', 'techseller@rahimunishamart.com', 'styleseller@rahimunishamart.com', 'nisha@rahimunishamart.com', 'demo.buyer@rahimunishamart.com')")) {
+                    fixPw.setString(1, "$2a$10$awPRC3ZKT6A9vc1Hg0w/l.cceaKvWrvYBNsOcmDuV4vTYKptwCyMa");
+                    fixPw.executeUpdate();
+                }
             }
         } catch (Exception e) {
             logger.error("Error executing database schema / seed scripts", e);

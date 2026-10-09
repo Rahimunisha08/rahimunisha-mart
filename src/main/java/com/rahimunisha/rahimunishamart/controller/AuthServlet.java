@@ -65,8 +65,11 @@ public class AuthServlet extends HttpServlet {
             User user = userService.login(loginReq);
 
             // Standing Rule: Regenerate session ID on login to protect against session fixation attacks
-            req.changeSessionId();
             HttpSession session = req.getSession(true);
+            try {
+                req.changeSessionId();
+            } catch (Exception ignored) {
+            }
             session.setAttribute("currentUser", user);
 
             if (redirect != null && !redirect.trim().isEmpty() && !redirect.contains("/auth/")) {

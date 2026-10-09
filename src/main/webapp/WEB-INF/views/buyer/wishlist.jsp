@@ -6,6 +6,16 @@
 
 <h1 style="font-size: 1.8rem; font-weight: 800; margin-bottom: 24px;">Your Saved Wishlist</h1>
 
+<c:if test="${isGuest}">
+    <div style="background: #fdf2f8; border: 1px solid #fbcfe8; padding: 16px 20px; border-radius: var(--border-radius); margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+        <div>
+            <strong style="color: #9d174d; font-size: 1rem;">👋 Guest Visitor</strong>
+            <p style="color: #be185d; font-size: 0.9rem; margin-top: 4px;">Sign in to save items across sessions and access your wishlist on any device.</p>
+        </div>
+        <a href="${pageContext.request.contextPath}/auth/login?redirect=${pageContext.request.contextPath}/wishlist" class="btn btn-primary btn-sm">Sign In to Your Account</a>
+    </div>
+</c:if>
+
 <c:choose>
     <c:when test="${empty wishlistItems}">
         <div style="background: white; padding: 60px 20px; text-align: center; border-radius: var(--border-radius); box-shadow: var(--card-shadow);">

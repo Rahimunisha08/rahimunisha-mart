@@ -1,17 +1,17 @@
 -- ====================================================================
 -- RahimunishaMart Seed Data
 -- Passwords below are jBCrypt hashed for: "Password@123"
--- Hash: $2a$10$EIXzaYVK1fsbw1ZfbX3OXePaWxn96p36WQoeG6Lruj3vjPGga31lW
+-- Hash: $2a$10$awPRC3ZKT6A9vc1Hg0w/l.cceaKvWrvYBNsOcmDuV4vTYKptwCyMa
 -- ====================================================================
 
 -- 1. Users (Admin, Sellers, Buyers)
 INSERT INTO users (id, email, password_hash, full_name, role, phone, address, created_at)
 VALUES 
-(1, 'admin@rahimunishamart.com', '$2a$10$EIXzaYVK1fsbw1ZfbX3OXePaWxn96p36WQoeG6Lruj3vjPGga31lW', 'System Administrator', 'ADMIN', '+91 9876543210', 'HQ Chennai, Tamil Nadu', CURRENT_TIMESTAMP),
-(2, 'techseller@rahimunishamart.com', '$2a$10$EIXzaYVK1fsbw1ZfbX3OXePaWxn96p36WQoeG6Lruj3vjPGga31lW', 'TechNova Electronics', 'SELLER', '+91 9876543211', 'Anna Salai, Chennai', CURRENT_TIMESTAMP),
-(3, 'styleseller@rahimunishamart.com', '$2a$10$EIXzaYVK1fsbw1ZfbX3OXePaWxn96p36WQoeG6Lruj3vjPGga31lW', 'Aura Fashion & Lifestyle', 'SELLER', '+91 9876543212', 'T Nagar, Chennai', CURRENT_TIMESTAMP),
-(4, 'nisha@rahimunishamart.com', '$2a$10$EIXzaYVK1fsbw1ZfbX3OXePaWxn96p36WQoeG6Lruj3vjPGga31lW', 'Rahimunisha Buyer', 'BUYER', '+91 9876543213', 'Guindy, Chennai', CURRENT_TIMESTAMP),
-(5, 'demo.buyer@rahimunishamart.com', '$2a$10$EIXzaYVK1fsbw1ZfbX3OXePaWxn96p36WQoeG6Lruj3vjPGga31lW', 'Karthik Raja', 'BUYER', '+91 9876543214', 'Adyar, Chennai', CURRENT_TIMESTAMP);
+(1, 'admin@rahimunishamart.com', '$2a$10$awPRC3ZKT6A9vc1Hg0w/l.cceaKvWrvYBNsOcmDuV4vTYKptwCyMa', 'System Administrator', 'ADMIN', '+91 9876543210', 'HQ Chennai, Tamil Nadu', CURRENT_TIMESTAMP),
+(2, 'techseller@rahimunishamart.com', '$2a$10$awPRC3ZKT6A9vc1Hg0w/l.cceaKvWrvYBNsOcmDuV4vTYKptwCyMa', 'TechNova Electronics', 'SELLER', '+91 9876543211', 'Anna Salai, Chennai', CURRENT_TIMESTAMP),
+(3, 'styleseller@rahimunishamart.com', '$2a$10$awPRC3ZKT6A9vc1Hg0w/l.cceaKvWrvYBNsOcmDuV4vTYKptwCyMa', 'Aura Fashion & Lifestyle', 'SELLER', '+91 9876543212', 'T Nagar, Chennai', CURRENT_TIMESTAMP),
+(4, 'nisha@rahimunishamart.com', '$2a$10$awPRC3ZKT6A9vc1Hg0w/l.cceaKvWrvYBNsOcmDuV4vTYKptwCyMa', 'Rahimunisha Buyer', 'BUYER', '+91 9876543213', 'Guindy, Chennai', CURRENT_TIMESTAMP),
+(5, 'demo.buyer@rahimunishamart.com', '$2a$10$awPRC3ZKT6A9vc1Hg0w/l.cceaKvWrvYBNsOcmDuV4vTYKptwCyMa', 'Karthik Raja', 'BUYER', '+91 9876543214', 'Adyar, Chennai', CURRENT_TIMESTAMP);
 
 -- 2. Products
 INSERT INTO products (id, seller_id, name, description, category, price, stock_qty, image_url, status, created_at)

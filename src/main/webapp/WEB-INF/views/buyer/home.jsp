@@ -98,7 +98,7 @@
                                 </c:otherwise>
                             </c:choose>
 
-                            <c:if test="${sessionScope.currentUser.role == 'BUYER'}">
+                            <c:if test="${empty sessionScope.currentUser || sessionScope.currentUser.role == 'BUYER'}">
                                 <form action="${pageContext.request.contextPath}/wishlist/add" method="post">
                                     <input type="hidden" name="productId" value="${p.id}">
                                     <input type="hidden" name="redirect" value="${pageContext.request.requestURI}">

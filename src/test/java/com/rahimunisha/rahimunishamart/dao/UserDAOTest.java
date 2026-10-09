@@ -4,6 +4,7 @@ import com.rahimunisha.rahimunishamart.dao.impl.UserDAOImpl;
 import com.rahimunisha.rahimunishamart.model.Role;
 import com.rahimunisha.rahimunishamart.model.User;
 import com.rahimunisha.rahimunishamart.util.DatabaseUtil;
+import com.rahimunisha.rahimunishamart.util.PasswordUtil;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 import org.junit.jupiter.api.AfterAll;
@@ -62,5 +63,12 @@ public class UserDAOTest {
         Optional<User> user = userDAO.findByEmail("admin@rahimunishamart.com");
         assertTrue(user.isPresent());
         assertEquals(Role.ADMIN, user.get().getRole());
+    }
+
+    @Test
+    public void testSeedAdminPassword() {
+        Optional<User> user = userDAO.findByEmail("admin@rahimunishamart.com");
+        assertTrue(user.isPresent());
+        assertTrue(PasswordUtil.checkPassword("Password@123", user.get().getPasswordHash()), "Hash in seed should match Password@123");
     }
 }

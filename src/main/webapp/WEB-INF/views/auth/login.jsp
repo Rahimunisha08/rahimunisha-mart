@@ -11,6 +11,11 @@
         <div class="alert alert-error"><c:out value="${errorMessage}" /></div>
     </c:if>
 
+    <c:if test="${not empty sessionScope.authMessage}">
+        <div class="alert alert-info" style="background: #e0f2fe; color: #0369a1; border-color: #bae6fd;"><c:out value="${sessionScope.authMessage}" /></div>
+        <c:remove var="authMessage" scope="session" />
+    </c:if>
+
     <c:if test="${not empty successMessage}">
         <div class="alert alert-success"><c:out value="${successMessage}" /></div>
     </c:if>

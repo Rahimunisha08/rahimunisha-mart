@@ -22,7 +22,9 @@ public class WishlistServlet extends HttpServlet {
         HttpSession session = req.getSession(false);
         User user = (session != null) ? (User) session.getAttribute("currentUser") : null;
         if (user == null) {
-            resp.sendRedirect(req.getContextPath() + "/auth/login");
+            req.setAttribute("wishlistItems", java.util.Collections.emptyList());
+            req.setAttribute("isGuest", true);
+            req.getRequestDispatcher("/WEB-INF/views/buyer/wishlist.jsp").forward(req, resp);
             return;
         }
 
@@ -36,7 +38,9 @@ public class WishlistServlet extends HttpServlet {
         HttpSession session = req.getSession(false);
         User user = (session != null) ? (User) session.getAttribute("currentUser") : null;
         if (user == null) {
-            resp.sendRedirect(req.getContextPath() + "/auth/login");
+            session = req.getSession(true);
+            session.setAttribute("authMessage", "Please sign in to manage your wishlist.");
+            resp.sendRedirect(req.getContextPath() + "/auth/login?redirect=" + req.getContextPath() + "/wishlist");
             return;
         }
 

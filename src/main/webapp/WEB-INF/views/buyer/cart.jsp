@@ -6,6 +6,16 @@
 
 <h1 style="font-size: 1.8rem; font-weight: 800; margin-bottom: 24px;">Your Shopping Cart</h1>
 
+<c:if test="${isGuest}">
+    <div style="background: #eef2ff; border: 1px solid #c7d2fe; padding: 16px 20px; border-radius: var(--border-radius); margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+        <div>
+            <strong style="color: #3730a3; font-size: 1rem;">👋 Guest Visitor</strong>
+            <p style="color: #4338ca; font-size: 0.9rem; margin-top: 4px;">Sign in to access your saved cart items and proceed to checkout.</p>
+        </div>
+        <a href="${pageContext.request.contextPath}/auth/login?redirect=${pageContext.request.contextPath}/cart" class="btn btn-primary btn-sm">Sign In to Your Account</a>
+    </div>
+</c:if>
+
 <c:if test="${not empty sessionScope.cartError}">
     <div class="alert alert-error">
         <c:out value="${sessionScope.cartError}" />
@@ -13,7 +23,7 @@
     <c:remove var="cartError" scope="session" />
 </c:if>
 
-<c:if test="${param.empty == 'true'}">
+<c:if test="${param['empty'] == 'true'}">
     <div class="alert alert-error">Your cart is empty. Please add items before checking out.</div>
 </c:if>
 

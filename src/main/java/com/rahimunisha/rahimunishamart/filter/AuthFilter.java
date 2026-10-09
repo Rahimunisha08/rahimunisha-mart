@@ -36,11 +36,10 @@ public class AuthFilter implements Filter {
         // Check if path is protected
         boolean isSellerPath = path.startsWith("/seller");
         boolean isAdminPath = path.startsWith("/admin");
-        boolean isBuyerProtectedPath = path.startsWith("/cart") || path.startsWith("/checkout") ||
-                                       path.startsWith("/orders") || path.startsWith("/wishlist");
+        boolean isBuyerProtectedPath = path.startsWith("/checkout") || path.startsWith("/orders");
 
         if (!isSellerPath && !isAdminPath && !isBuyerProtectedPath) {
-            // Public path (browse, product details, auth, static assets, health, chat)
+            // Public path (browse, product details, auth, static assets, health, chat, cart, wishlist)
             chain.doFilter(request, response);
             return;
         }

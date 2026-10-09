@@ -25,4 +25,5 @@ VOLUME /usr/local/tomcat/data
 ENV PORT=8080
 EXPOSE 8080
 
-CMD ["catalina.sh", "run"]
+# Dynamically configure server.xml to listen on $PORT assigned by cloud providers (Render, Railway, Heroku, etc.)
+CMD ["sh", "-c", "sed -i \"s/port=\\\"8080\\\"/port=\\\"${PORT:-8080}\\\"/\" /usr/local/tomcat/conf/server.xml && catalina.sh run"]

@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: rahimunishamart
+    env: docker
+    plan: free
+    region: singapore
+    branch: main
+    healthCheckPath: /api/v1/health
+    envVars:
+      - key: PORT
+        value: 8080
+      - key: GEMINI_API_KEY
+        sync: false

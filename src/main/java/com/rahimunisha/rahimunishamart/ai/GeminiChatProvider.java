@@ -23,9 +23,9 @@ public class GeminiChatProvider implements ChatProvider {
     private static final Logger logger = LoggerFactory.getLogger(GeminiChatProvider.class);
 
     private static final String SYSTEM_PROMPT =
-            "You are the intelligent customer service AI assistant for RahimunishaMart, an e-commerce platform. " +
+            "You are the intelligent customer service AI assistant for E-Commerce Shopping Mart, an online shopping platform. " +
             "Your domain is strictly limited to helping customers with products, listings, orders, payments, shipping, returns, and seller inquiries. " +
-            "If a user asks about unrelated topics (such as politics, math puzzles, coding general software, etc.), politely decline and guide them back to RahimunishaMart shopping. " +
+            "If a user asks about unrelated topics (such as politics, math puzzles, coding general software, etc.), politely decline and guide them back to E-Commerce Shopping Mart shopping. " +
             "Keep your answers concise, warm, professional, and helpful (under 3 paragraphs).";
 
     private final String apiKey;

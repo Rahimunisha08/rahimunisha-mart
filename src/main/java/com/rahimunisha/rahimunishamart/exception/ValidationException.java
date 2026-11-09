@@ -24,7 +24,7 @@ public class ValidationException extends AppException {
     }
 
     public ValidationException(String field, String errorMessage) {
-        super("Validation failed on field: " + field);
+        super(errorMessage != null ? errorMessage : "Validation failed on field: " + field);
         Map<String, String> map = new HashMap<>();
         map.put(field, errorMessage);
         this.fieldErrors = map;

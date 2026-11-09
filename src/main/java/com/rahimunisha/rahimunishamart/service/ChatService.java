@@ -63,7 +63,7 @@ public class ChatService {
             logger.error("ChatProvider exception occurred during query processing: {}", e.getMessage(), e);
             // Degraded static fallback per Week 9 requirement
             reply = "I apologize, our smart assistant is currently experiencing high load. " +
-                    "For order or returns assistance, please check 'My Orders' or reach out to support@rahimunishamart.com.";
+                    "For order or returns assistance, please check 'My Orders' or reach out to support@shoppingmart.com.";
         }
 
         // Cache the successful/fallback reply in the session

@@ -5,7 +5,7 @@
 
 <div class="form-card" style="max-width: 540px;">
     <h1 style="font-size: 1.6rem; font-weight: 800; text-align: center; margin-bottom: 8px;">Create Account</h1>
-    <p style="text-align: center; color: var(--gray-500); font-size: 0.9rem; margin-bottom: 24px;">Join RahimunishaMart as a Buyer or Seller</p>
+    <p style="text-align: center; color: var(--gray-500); font-size: 0.9rem; margin-bottom: 24px;">Join E-Commerce Shopping Mart as a Buyer or Seller</p>
 
     <c:if test="${not empty errorMessage}">
         <div class="alert alert-error"><c:out value="${errorMessage}" /></div>

@@ -5,7 +5,7 @@
 
 <div class="form-card">
     <h1 style="font-size: 1.6rem; font-weight: 800; text-align: center; margin-bottom: 8px;">Welcome Back</h1>
-    <p style="text-align: center; color: var(--gray-500); font-size: 0.9rem; margin-bottom: 24px;">Sign in to RahimunishaMart</p>
+    <p style="text-align: center; color: var(--gray-500); font-size: 0.9rem; margin-bottom: 24px;">Sign in to E-Commerce Shopping Mart</p>
 
     <c:if test="${not empty errorMessage}">
         <div class="alert alert-error"><c:out value="${errorMessage}" /></div>

@@ -18,7 +18,7 @@ public class AppContextListener implements ServletContextListener {
 
     @Override
     public void contextInitialized(ServletContextEvent sce) {
-        logger.info("Initializing RahimunishaMart Application Context...");
+        logger.info("Initializing E-Commerce Shopping Mart Application Context...");
         try {
             DatabaseUtil.initDataSource();
             logger.info("Application context and HikariCP connection pool initialized successfully.");
@@ -30,7 +30,7 @@ public class AppContextListener implements ServletContextListener {
 
     @Override
     public void contextDestroyed(ServletContextEvent sce) {
-        logger.info("Destroying RahimunishaMart Application Context...");
+        logger.info("Destroying E-Commerce Shopping Mart Application Context...");
         DatabaseUtil.closeDataSource();
         logger.info("Application context destroyed.");
     }

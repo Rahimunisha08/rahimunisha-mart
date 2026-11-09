@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><c:out value="${pageTitle != null ? pageTitle : 'RahimunishaMart — Premier E-Commerce'}" /></title>
+    <title><c:out value="${pageTitle != null ? pageTitle : 'E-Commerce Shopping Mart — Premier Online Store'}" /></title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/style.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/chatbot.css">
     <script>
@@ -18,7 +18,7 @@
 <header class="navbar">
     <div class="container navbar-content">
         <a href="${pageContext.request.contextPath}/home" class="logo">
-            🛒 Rahimunisha<span>Mart</span>
+            🛒 E-Commerce <span>Shopping Mart</span>
         </a>
 
         <form action="${pageContext.request.contextPath}/home" method="get" class="search-bar">

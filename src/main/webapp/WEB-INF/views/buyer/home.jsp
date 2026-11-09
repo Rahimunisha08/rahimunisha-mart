@@ -6,7 +6,7 @@
 
 <!-- Hero Banner -->
 <div style="background: linear-gradient(135deg, #4f46e5 0%, #312e81 100%); color: white; padding: 40px; border-radius: 12px; margin-bottom: 30px;">
-    <h1 style="font-size: 2.2rem; font-weight: 800; margin-bottom: 10px;">Welcome to RahimunishaMart</h1>
+    <h1 style="font-size: 2.2rem; font-weight: 800; margin-bottom: 10px;">Welcome to E-Commerce Shopping Mart</h1>
     <p style="font-size: 1.1rem; opacity: 0.9; max-width: 600px;">
         Explore curated electronics, fashion apparel, and lifestyle essentials. Fast delivery and secure transactions guaranteed.
     </p>

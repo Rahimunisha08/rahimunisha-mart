@@ -47,7 +47,7 @@ public class EmbeddedServer {
         }
 
         System.out.println("==================================================================");
-        System.out.println("   RAHIMUNISHA MART CAPSTONE SERVER INITIALIZING");
+        System.out.println("   E-COMMERCE SHOPPING MART SERVER INITIALIZING");
         System.out.println("   Access Web Application at: http://localhost:" + port);
         System.out.println("   Health Status Endpoint at: http://localhost:" + port + "/api/v1/health");
         System.out.println("   Press Ctrl+C to shut down.");

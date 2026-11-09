@@ -1,13 +1,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!-- Floating AI Chatbot Widget (Week 10 / O4 Deliverable) -->
-<button id="chatLauncher" class="chat-launcher-btn" title="Chat with RahimunishaMart Assistant" aria-label="Open AI Assistant">
+<button id="chatLauncher" class="chat-launcher-btn" title="Chat with Shopping Mart Assistant" aria-label="Open AI Assistant">
     💬
 </button>
 
 <div id="chatPanel" class="chat-panel" role="dialog" aria-labelledby="chatTitle">
     <div class="chat-header">
         <div>
-            <div id="chatTitle" class="chat-header-title">🤖 RahimunishaMart Assistant</div>
+            <div id="chatTitle" class="chat-header-title">🤖 Shopping Mart Assistant</div>
             <div class="chat-header-status">Online · Instant Answers</div>
         </div>
         <button id="chatCloseBtn" class="chat-close-btn" aria-label="Close Chat">&times;</button>
@@ -15,7 +15,7 @@
 
     <div id="chatMessages" class="chat-messages">
         <div class="chat-msg chat-msg-bot">
-            Hello! I am your RahimunishaMart shopping assistant. How may I assist you with orders, returns, payments, or product details today?
+            Hello! I am your E-Commerce Shopping Mart assistant. How may I assist you with orders, returns, payments, or product details today?
         </div>
     </div>
 

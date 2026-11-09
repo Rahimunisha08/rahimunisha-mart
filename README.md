@@ -1,4 +1,4 @@
-# RahimunishaMart — Enterprise E-Commerce Platform
+# E-Commerce Shopping Mart — Enterprise Online Platform
 [![Java 17](https://img.shields.io/badge/Java-17%20LTS-orange.svg)](https://www.oracle.com/java/)
 [![Tomcat 9](https://img.shields.io/badge/Apache%20Tomcat-9.0.x-blue.svg)](https://tomcat.apache.org/)
 [![HikariCP](https://img.shields.io/badge/HikariCP-5.1.0-brightgreen.svg)](https://github.com/brettwooldridge/HikariCP)

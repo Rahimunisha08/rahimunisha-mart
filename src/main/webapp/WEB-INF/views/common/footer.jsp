@@ -3,7 +3,7 @@
 
 <footer class="footer">
     <div class="container">
-        <p>&copy; 2026 <strong>RahimunishaMart</strong>. Anna University R2025 Semester 3 Capstone Project.</p>
+        <p>&copy; 2026 <strong>E-Commerce Shopping Mart</strong>. Capstone Project.</p>
         <p style="margin-top: 6px; font-size: 0.8rem; color: #94a3b8;">
             Java Servlets 4.0 · Apache Tomcat 9.0 · HikariCP · H2 Database · AI Chatbot Proxy
         </p>

@@ -1,7 +1,7 @@
 @echo off
 setlocal
 echo ===================================================================
-echo     RAHIMUNISHA MART - ANNA UNIVERSITY CAPSTONE RUNNER
+echo     E-COMMERCE SHOPPING MART - SERVER RUNNER
 echo ===================================================================
 echo.
 
@@ -16,7 +16,7 @@ if %ERRORLEVEL% equ 0 (
 
 if defined MVN_CMD (
     echo [INFO] Using Maven: %MVN_CMD%
-    echo [INFO] Starting RahimunishaMart Server on port 8080...
+    echo [INFO] Starting E-Commerce Shopping Mart on port 8080...
     call "%MVN_CMD%" exec:java
     goto end
 )
